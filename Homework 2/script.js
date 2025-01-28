@@ -10,4 +10,4 @@ console.log("2. Denis Villenueve: My favorite movie director, director of the Du
 console.log("3. David Bowie: One of my mother's favorite movie artists, a big reason why she is sucha beautiful, happy, and lovely person")
 
 var name = prompt('what is your name?')                  
-console.log('hello: ${userAnswer}')
+console.log('hello: ${name}')
