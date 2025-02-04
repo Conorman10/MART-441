@@ -3,7 +3,7 @@ function storyFunction(choice) {
     var answer2 = document.getElementById("choice2").innerHTML;
     if (choice == 1 && answer1 == "Yes") {
         document.getElementById("story").innerHTML = "Pingus walks onwards in search of his friends and family. On the way, he sees a shadowy figure.";
-        document.getElementById("choice1").innerHTML = "Walks toward it";
+        document.getElementById("choice1").innerHTML = "Walk toward it";
         document.getElementById("choice2").innerHTML = "Walk away from it";
     } else if (choice == 2 && answer2 == "No") {
         document.getElementById("story").innerHTML = "TOO BAD! You're helping Pingus anyways. Pingus stumbles upon a hole in the ground. It looks like a tunnel.";
@@ -58,7 +58,7 @@ function storyFunction(choice) {
         document.getElementById("choice1").innerHTML = "Yes restart";
         document.getElementById("choice2").innerHTML = "No quit";
     } else if (choice == 2 && answer2 == "East") {
-        document.getElementById("story").innerHTML = "Pingus heads East, believing it to be the correct way to go. Unfortunately, he still cannot fins his way to his friends." + "<br>Restart?";
+        document.getElementById("story").innerHTML = "Pingus heads East, believing it to be the correct way to go. Unfortunately, he still cannot find his way to his friends." + "<br>Restart?";
         document.getElementById("choice1").innerHTML = "Yes restart";
         document.getElementById("choice2").innerHTML = "No quit";
     } else if (choice == 1 && answer1 == "Yes restart") {
