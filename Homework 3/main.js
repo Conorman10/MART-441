@@ -25,3 +25,4 @@ function storyFunction(choice) {
         document.getElementById("story").innerHTML = "Pugster decides to just look around for the moment. What should Pugster do now?";
         document.getElementById("choice1").innerHTML = "Watch from afar";
         document.getElementById("choice2").innerHTML = "Get in closer";
+    }    
