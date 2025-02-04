@@ -1,18 +1,22 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
-        <title>Accessing the DOM</title>
-        <script>
-            function doSomething()
-            {
-                document.write("HI");
-            }
-        </script>
-   
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Choose Your Own Adventure</title>
+        <link rel="stylesheet" href="styles.css"> 
+        <script src="main.js"></script>
     </head>
+
     <body>
-        <div id="changeme">I love functions</div>
-        <script>
-            doSomething();
-        </script>
+        <img src="penguin.jpg" height="300" width="300">
+        <br>
+        <h1>Pingus the Penguin</h1>   
+        <p>Pingus the Penguin is lost in the arctic! Can you help him find his way back to his pack?</p> 
+        <br>
+        
+        <button id="choice1" onclick="storyFunction(1);">Yes</button>&nbsp;
+        <button id="choice2" onclick="storyFunction(2);">No</button>
     </body>
+    
 </html>
