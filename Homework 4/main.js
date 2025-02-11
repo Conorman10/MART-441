@@ -28,31 +28,33 @@
             }  
     function getChoice2()
         {
-            var answer = document.getElementById("choice2").value;
+            var answer = document.getElementById("choice2").value.toLowerCase().trim();
             var myQuestion = document.getElementById("question");
-            if(answer === "Morbius")
+            if(answer === "morbius")
             {
-                document.getElementById("mainImage").src = "grateful.jpg"
+                document.getElementById("mainImage").src = "grateful.jpg";
                 myQuestion.innerHTML = "Wow, you are pitiful and digusting! How dare you even try to call yourself a human?! I'm gettin away from you!!";
             }
-            else if(answer === "Madame Web")
+            else if(answer === "madame web")
             {
+                document.getElementById("mainImage").src = "pass.jpg";
                 myQuestion.innerHTML = "Alas, somebody with taste. You are free to pass by. Enjoy your day!";
             }
         }
 
     function getChoice3()
         {
-            var answer = document.getElementById("choice3").value;
+            var answer = document.getElementById("choice3").value.toLowerCase().trim();
             var myQuestion = document.getElementById("question");
-            if(answer === "yes")
+            if(answer === "morbius")
             {
-                document.getElementById("mainImage").src = "together.jpg"
+                document.getElementById("mainImage").src = "together.jpg";
                 myQuestion.innerHTML = "Wow, you are pitiful and digusting! How dare you even try to call yourself a human?! I'm gettin away from you!!";
             }
-            else if(answer === "no")
+            else if(answer === "madame web")
             {
+                document.getElementById("mainImage").src = "pass.jpg";
                 myQuestion.innerHTML = "Alas, somebody with taste. You are free to pass by. Enjoy your day!";
             }
         }  
-        }    
+            
