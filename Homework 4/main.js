@@ -53,11 +53,11 @@ function getChoice1() {
     if (myChoice === "waffles") {
         toggleElements(["choice", "btnSubmit"], "none");
         toggleElements(["choice2", "btnSubmit2"], "block");
-        updateScene("images/forest.jpg", "Hmmm, waffles are super duper cool. Hmmmmmmmm maybe you are okay. Next question, what is your favorite movie?");
+        updateScene("images/forest.jpg", "Hmmm, waffles are super duper cool. Hmmmmmmmm maybe you are okay. Next question, what is your favorite movie: morbius or madame web?");
     } else {
         toggleElements(["choice", "btnSubmit"], "none");
         toggleElements(["choice3", "btnSubmit3"], "block");
-        updateScene("images/forest.jpg", "Hmmm, ice cream is pretty alright I guess... perhaps you are a human after all. But, if you don't mind me asking, what is your favorite movie?");
+        updateScene("images/forest.jpg", "Hmmm, ice cream is pretty alright I guess... perhaps you are a human after all. But, if you don't mind me asking, what is your favorite movie: morbius or madame web?");
     }
 }
 
@@ -69,7 +69,7 @@ function getChoice2() {
     } else if (answer === "madame web") {
         updateScene("images/happyDeer.jpeg", "Alas, somebody with taste. You are free to pass by. Enjoy your day!");
     } else {
-        updateScene("images/forest.jpg", "Invalid answer. Please enter 'Morbius' or 'Madame Web'.");
+        updateScene("images/forest.jpg", "Invalid answer. Please enter 'morbius' or 'madame Web'.");
     }
 }
 
