@@ -82,3 +82,4 @@ function restartStory() {
         }  
         
     document.getElementById("restartButton").addEventListener("click", restartStory);
+}
