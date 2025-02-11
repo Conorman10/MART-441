@@ -20,7 +20,7 @@ function getUserInput(id) {
 }
 
 function restartStory() {
-    updateScene("images/forest.jpg", "You are asked an important question: What do you prefer? Waffles or Ice Cream?");
+    updateScene("images/forest.jpg", "You are asked an important question: What do you prefer? waffles or ice Cream?");
     
     document.getElementById("choice").value = "";
     document.getElementById("choice2").value = "";
