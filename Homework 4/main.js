@@ -20,7 +20,7 @@ function getUserInput(id) {
 }
 
 function restartStory() {
-    updateScene("forest.jpg", "You are asked an important question: What do you prefer? Waffles or Ice Cream?");
+    updateScene("images/forest.jpg", "You are asked an important question: What do you prefer? Waffles or Ice Cream?");
     
     document.getElementById("choice").value = "";
     document.getElementById("choice2").value = "";
@@ -46,18 +46,18 @@ function getChoice1() {
     let validChoices = ["waffles", "ice cream"];
 
     while (!validChoices.includes(myChoice)) {
-        updateScene("forest.jpg", "Invalid answer. Please enter 'waffles' or 'ice cream'.");
+        updateScene("images/forest.jpg", "Invalid answer. Please enter 'waffles' or 'ice cream'.");
         return;
     }
 
     if (myChoice === "waffles") {
         toggleElements(["choice", "btnSubmit"], "none");
         toggleElements(["choice2", "btnSubmit2"], "block");
-        updateScene("forest.jpg", "Hmmm, waffles are super duper cool. Hmmmmmmmm maybe you are okay. Next question, what is your favorite movie?");
+        updateScene("images/forest.jpg", "Hmmm, waffles are super duper cool. Hmmmmmmmm maybe you are okay. Next question, what is your favorite movie?");
     } else {
         toggleElements(["choice", "btnSubmit"], "none");
         toggleElements(["choice3", "btnSubmit3"], "block");
-        updateScene("forest.jpg", "Hmmm, ice cream is pretty alright I guess... perhaps you are a human after all. But, if you don't mind me asking, what is your favorite movie?");
+        updateScene("images/forest.jpg", "Hmmm, ice cream is pretty alright I guess... perhaps you are a human after all. But, if you don't mind me asking, what is your favorite movie?");
     }
 }
 
@@ -65,11 +65,11 @@ function getChoice2() {
     let answer = getUserInput("choice2");
 
     if (answer === "morbius") {
-        updateScene("unhappyDeer.jpeg", "Wow, you are pitiful and disgusting! How dare you even try to call yourself a human?! I'm getting away from you!!");
+        updateScene("images/unhappyDeer.jpeg", "Wow, you are pitiful and disgusting! How dare you even try to call yourself a human?! I'm getting away from you!!");
     } else if (answer === "madame web") {
-        updateScene("happyDeer.jpeg", "Alas, somebody with taste. You are free to pass by. Enjoy your day!");
+        updateScene("images/happyDeer.jpeg", "Alas, somebody with taste. You are free to pass by. Enjoy your day!");
     } else {
-        updateScene("forest.jpg", "Invalid answer. Please enter 'Morbius' or 'Madame Web'.");
+        updateScene("images/forest.jpg", "Invalid answer. Please enter 'Morbius' or 'Madame Web'.");
     }
 }
 
@@ -77,11 +77,11 @@ function getChoice3() {
     let answer = getUserInput("choice3");
 
     if (answer === "morbius") {
-        updateScene("unhappyDeer.jpeg", "Wow, you are pitiful and disgusting! How dare you even try to call yourself a human?! I'm getting away from you!!");
+        updateScene("images/unhappyDeer.jpeg", "Wow, you are pitiful and disgusting! How dare you even try to call yourself a human?! I'm getting away from you!!");
     } else if (answer === "madame web") {
-        updateScene("happyDeer.jpeg", "Alas, somebody with taste. You are free to pass by. Enjoy your day!");
+        updateScene("images/happyDeer.jpeg", "Alas, somebody with taste. You are free to pass by. Enjoy your day!");
     } else {
-        updateScene("forest.jpg", "Invalid answer. Please enter 'Morbius' or 'Madame Web'.");
+        updateScene("images/forest.jpg", "Invalid answer. Please enter 'Morbius' or 'Madame Web'.");
     }
 }
 
