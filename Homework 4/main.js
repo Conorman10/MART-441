@@ -1,19 +1,62 @@
-document.addEventListener("DOMContentLoaded", function () {    
-    const storyText = document.getElementById("storyText");
-    const userInput = document.getElementById("userInput");
-    const submitButton = document.getElementById("submitButton");
-    const restartButton = document.getElementById("restartButton");
-    const storyImage = document.getElementById("storyImage");
-    function getChoice1()
+   function getChoice1()
         {
             var myChoice = document.getElementById("choice").ariaValueMax;
             var myQuestion = document.getElementById("question");
+            if(myChoice === "waffles")
+            {
+                document.getElementById("choice").style.display="none";
+                document.getElementById("question");
+                if(myChoice === "waffle")
+                {
+                    document.getElementById("choice").style.display="none";
+                    document.getElementById("btnSubmit").style.display="none";
+                    
+                    document.getElementById("choice2").style.display="block";
+                    document.getElementById("btnSubmit2").style.display="block";
+                    
+                    myQuestion.innerHTML = "Hmmm, waffles are super duper cool. Hmmmmmmmm maybe you are all okay. Next question, what is your favorite movie?";
+                }
+                else if(myChoice === "ice cream")
+                {
+                    document.getElementById("choice").style.display="none";
+                    document.getElementById("btnSubmit").style.display="none";
+                
+                    document.getElementById("choice3").style.display="block";
+                    document.getElementById("btnSubmit3").style.display="block";
+                    myQuestion.innerHTML = "hmmmmmm, ice cream is pretty alright I guess... perhaps you are a human after all. But, if you don't mind me asking, what is your favorite movie?";
+                }  
+                else
+                {
+                    myQuestion.innerHTML = "Invalid answer";
+                }  
+            }  
+    function getChoice2()
+        {
+            var answer = document.getElementById("choice2").value;
+            var myQuestion = document.getElementById("question");
+            if(answer === "yes")
+            {
+                document.getElementById("mainImage").src = "grateful.jpg"
+                myQuestion.innerHTML = "Thank you for your kindness!";
+            }
+            else if(answer === "no")
+            {
+                myQuestion.innerHTML = "Please remember we are all in this together.";
+            }
         }
-        
-        restartButton.addEventListener("click", function () {
-            storyStage = 0;
-            storyText.innerHTML = "You are driving down a dirt road heading nowhere in particular. You come to a T in the street. Which way do you go? Left or Right?";
-            storyImage.src = "road.jpg";
-            restartButton.style.display = "none";
-        });    
-    }        
+
+    function getChoice3()
+        {
+            var answer = document.getElementById("choice3").value;
+            var myQuestion = document.getElementById("question");
+            if(answer === "yes")
+            {
+                document.getElementById("mainImage").src = "together.jpg"
+                myQuestion.innerHTML = "Thank you for your kindness!";
+            }
+            else if(answer === "no")
+            {
+                myQuestion.innerHTML = "Please remember we are all in this together.";
+            }
+        }  
+        }    
