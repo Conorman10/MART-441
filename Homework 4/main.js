@@ -1,12 +1,8 @@
    function getChoice1()
         {
-            var myChoice = document.getElementById("choice").ariaValueMax;
+            var myChoice = document.getElementById("choice").value;
             var myQuestion = document.getElementById("question");
             if(myChoice === "waffles")
-            {
-                document.getElementById("choice").style.display="none";
-                document.getElementById("question");
-                if(myChoice === "waffle")
                 {
                     document.getElementById("choice").style.display="none";
                     document.getElementById("btnSubmit").style.display="none";
