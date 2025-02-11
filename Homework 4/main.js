@@ -14,7 +14,7 @@
                     document.getElementById("choice2").style.display="block";
                     document.getElementById("btnSubmit2").style.display="block";
                     
-                    myQuestion.innerHTML = "Hmmm, waffles are super duper cool. Hmmmmmmmm maybe you are all okay. Next question, what is your favorite movie?";
+                    myQuestion.innerHTML = "Hmmm, waffles are super duper cool. Hmmmmmmmm maybe you are okay. Next question, what is your favorite movie?";
                 }
                 else if(myChoice === "ice cream")
                 {
@@ -34,14 +34,14 @@
         {
             var answer = document.getElementById("choice2").value;
             var myQuestion = document.getElementById("question");
-            if(answer === "yes")
+            if(answer === "Morbius")
             {
                 document.getElementById("mainImage").src = "grateful.jpg"
-                myQuestion.innerHTML = "Thank you for your kindness!";
+                myQuestion.innerHTML = "Wow, you are pitiful and digusting! How dare you even try to call yourself a human?! I'm gettin away from you!!";
             }
-            else if(answer === "no")
+            else if(answer === "Madame Web")
             {
-                myQuestion.innerHTML = "Please remember we are all in this together.";
+                myQuestion.innerHTML = "Alas, somebody with taste. You are free to pass by. Enjoy your day!";
             }
         }
 
@@ -52,11 +52,11 @@
             if(answer === "yes")
             {
                 document.getElementById("mainImage").src = "together.jpg"
-                myQuestion.innerHTML = "Thank you for your kindness!";
+                myQuestion.innerHTML = "Wow, you are pitiful and digusting! How dare you even try to call yourself a human?! I'm gettin away from you!!";
             }
             else if(answer === "no")
             {
-                myQuestion.innerHTML = "Please remember we are all in this together.";
+                myQuestion.innerHTML = "Alas, somebody with taste. You are free to pass by. Enjoy your day!";
             }
         }  
         }    
