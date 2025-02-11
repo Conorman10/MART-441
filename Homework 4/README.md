@@ -1,0 +1,5 @@
+# MART-441 Homework 4
+
+    For this assignment, I decided to make the game using entirely my own code, then plug it into ChatGBT to check it for errors. ChatGBT was able to effectively show where my code was incorrect and fix it up, meaning that it was very helpful for this assignment. At every other step, I either used my own code or the class example code as a reference.
+
+    When I plugged this assignment into ChatGBT, it had an incredibly different result. It printed everything out all on one "index.html" page, and grouped every part of the assignment into individual functions, instead of labeling each choice with numbers like "choice1" "choice2" etc. It labeled them "FirstChoice" "NextChoice" etc. which I thought was pretty unnecessary. One thing I liked about ChatGBT's version which I decided to incoporate into my own project was the ability for user answers to be case insensitive by adding ".toLowerCase().trim()" where necessary. ChatGBT also came up with an incredibly detailed "style.css" sheet, which I think would be cool to try and emulate in future projects.
