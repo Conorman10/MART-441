@@ -1,0 +1,10 @@
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    grid-gap: 10px;
+}
+.grid img {
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+}
