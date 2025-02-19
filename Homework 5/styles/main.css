@@ -1,8 +1,13 @@
 .grid {
     display: grid;
-    grid-template-columns: repeat(4, 100px);
+    grid-template-columns: repeat(4, 100px); /* Ensures 4 columns */
     grid-gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    width: 450px; /* Adjusts for spacing */
 }
+
 .grid img {
     width: 100px;
     height: 100px;
