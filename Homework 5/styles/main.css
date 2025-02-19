@@ -1,15 +1,23 @@
 .grid {
     display: grid;
-    grid-template-columns: repeat(4, 100px); /* Ensures 4 columns */
-    grid-gap: 10px;
+    grid-template-columns: repeat(4, 100px); /* 4 columns */
+    grid-gap: 10px; /* Space between images */
     justify-content: center;
     align-items: center;
     margin: 20px auto;
-    width: 450px; /* Adjusts for spacing */
+    width: 450px;
+    padding: 10px; /* Adds space around the grid */
+    border: 5px solid black; /* Border around the grid */
+    border-radius: 10px; /* Rounded corners */
+    background-color: lightgray; /* Optional background */
 }
 
 .grid img {
     width: 100px;
     height: 100px;
     cursor: pointer;
+    border: 3px solid black; /* Borders between images */
+    border-radius: 8px; /* Rounded edges */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Adds depth */
+    background-color: white; /* Ensures consistent background */
 }
