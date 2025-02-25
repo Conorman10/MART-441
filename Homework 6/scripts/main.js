@@ -88,12 +88,15 @@ function checkForMatch() {
 }
 
 function checkGameCompletion() {
-    if (matchedPairs === 6) {
-        let player = JSON.parse(localStorage.getItem("player"));
-        player.attempts = attempts;
-        localStorage.setItem("player", JSON.stringify(player));
-        window.location.href = "result.html"; 
+    if (matchedPairs === 6) {  
+        let player = JSON.parse(localStorage.getItem("playerInfo"));
+        if (player) {
+            player.attempts = attempts;  
+            localStorage.setItem("playerInfo", JSON.stringify(player));  
+            setTimeout(() => {
+                window.location.href = "result.html";  
+            }, 1000); 
+        }
     }
 }
-
 
