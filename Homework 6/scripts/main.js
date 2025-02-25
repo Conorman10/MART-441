@@ -6,7 +6,7 @@ function storePlayerInfo() {
         attempts: 0
     };
     localStorage.setItem("playerInfo", JSON.stringify(player));
-    window.location.href = "game.html"; 
+    window.location.href = "game.html"; // Redirect to the game page
 }
 
 function loadPlayerResults() {
@@ -91,7 +91,7 @@ function checkGameCompletion() {
     if (matchedPairs === 6) {  
         let player = JSON.parse(localStorage.getItem("playerInfo"));
         if (player) {
-            player.attempts = attempts;  
+            player.attempts = attempts; 
             localStorage.setItem("playerInfo", JSON.stringify(player));  
             setTimeout(() => {
                 window.location.href = "result.html";  
@@ -99,4 +99,3 @@ function checkGameCompletion() {
         }
     }
 }
-
