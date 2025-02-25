@@ -47,7 +47,7 @@ function printBlankArray()
 
 function createRandomImageArray()
 { 
-    var actualImagePath = ["images/rock.jpg", "images/paper.png", "images/scissors.jpg", "images/fire.webp", "images/water.jpg", "images/grass.avif"];
+    var actualImagePath = ["images/rock.jpg", "images/paper.png", "images/scissors.jpg", "images/fire.jpg", "images/water.jpg", "images/grass.avif"];
     var count = [0, 0, 0, 0, 0, 0];
     while(actualImages.length < 12)
     {
