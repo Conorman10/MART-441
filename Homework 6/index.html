@@ -4,16 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
-        Homework 5
+        Homework 6
     </title>
     <script src="scripts/main.js"></script>
     <link rel="stylesheet" type="text/css" href="styles/main.css"></link>
 </head>
 
-<body onload="printBlankArray();">
+<body>
+    <h1>ENTER YOUR DETAILS</h1>
 
-    <h1>Picture Game</h1>
-    <div class="grid" id="gameBoard"></div>
+    <form onsubmit="storePlayerInfo(); return false;">
+        First Name: <input type="text" id="firstname" required><br>
+        Last Name: <input type="text" id="lastname" required><br>
+        Age: <input type="number" id="age" required><br>
+        <button type="submit">Start Game</button>
+    </form>
 
 </body>
 
