@@ -1,22 +1,21 @@
-function addToPlayer() {
-    var firstName = document.getElementById("txtFirstName").value;
-    var lastName = document.getElementById("txtLastName").value;
-    var age = document.getElementById("txtAge").value;
-
-    player.firstname = firstName;
-    player.lastname = lastName;
-    player.age = age;
+function storePlayerInfo() {
+    let player = {
+        firstname: document.getElementById("firstname").value,
+        lastname: document.getElementById("lastname").value,
+        age: document.getElementById("age").value,
+        attempts: 0
+    };
     localStorage.setItem("playerInfo", JSON.stringify(player));
-    window.location = "game.html";
+    window.location.href = "game.html"; 
 }
 
-function playerInfo() {
-    var playerInformation = localStorage.getItem("playerInfo");
-    player = JSON.parse(playerInformation);
-    var str = "Name: " + player.firstname + " " + player.lastname + "<br>" + 
-    "Age: " + player.age + "<br>" + "Score: " + player.score;
-    if(document.getElementById("endInformation") != null) {
-        document.getElementById("endInformation").innerHTML = str;
+function loadPlayerResults() {
+    let player = JSON.parse(localStorage.getItem("playerInfo"));
+    if (player) {
+        document.getElementById("playerInfo").innerHTML = 
+            `Name: ${player.firstname} ${player.lastname} <br> 
+             Age: ${player.age} <br> 
+             Attempts: ${player.attempts}`;
     }
 }
 
@@ -53,7 +52,7 @@ function createRandomImageArray()
     while(actualImages.length < 12)
     {
         var randomNumber = Math.floor(Math.random() * actualImagePath.length);
-        if(count[randomNumber] < 4) 
+        if(count[randomNumber] < 2) 
         {
             actualImages.push(actualImagePath[randomNumber]);
             count[randomNumber]++;
@@ -93,7 +92,7 @@ function checkGameCompletion() {
         let player = JSON.parse(localStorage.getItem("player"));
         player.attempts = attempts;
         localStorage.setItem("player", JSON.stringify(player));
-        window.location.href = "result.html"; // Redirect to result page
+        window.location.href = "result.html"; 
     }
 }
 
