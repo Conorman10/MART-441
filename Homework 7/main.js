@@ -1,4 +1,4 @@
-var myArtworkArray = newArray();
+var myArtworkArray = [];
 class Artwork {
     constructor(title, image, description, author, year) {
         this.title = title;
@@ -10,25 +10,16 @@ class Artwork {
 
     toString()
     { 
-        return 'This painting is called The ${this.title}. <br /> <br /> ${this.image}. <br /> This painting is ${this.description}. It was created by ${this.author} in ${this.year}'
-    }
-
-    get theTitle()
-    { 
-        return this.title;
-    }
-
-    get theImage()
-    {
-        return this.image;
+        return `This painting is called <strong>${this.title}</strong>.<br/><br/>
+                <img src="${this.image}" alt="${this.title}" style="width:100%;"><br/><br/>
+                ${this.description}<br/>
+                It was created by ${this.author} in ${this.year}.`;
     }
 }
 
-
-
 function initializeArray() {
 
-    var myArtwork = 
+    myArtworkArray = [ 
         new Artwork(
             "Mona Lisa",
             "images/monaLisa.webp",
@@ -43,7 +34,7 @@ function initializeArray() {
             "Vincent van Gogh",
             1889
         ),
-        new Artwork (
+        new Artwork(
             "Last Supper",
             "images/theLastSupper.webp",
             "An artistic rendition of the last time Jesus ate before his death.",
@@ -56,18 +47,23 @@ function initializeArray() {
             "A picture of a strange being standing on a bridge holding his ears and screaming.",
             "Edvard Munch",
             1893
-        )
+        ),
         new Artwork (
             "Girl with a Peal Earring",
             "images/pearlEarring.webp",
-            "A portrait of a young girl wearing a Pearl earring.",
+            "A portrait of a young girl wearing a pearl earring.",
             "johannes Vermeer",
             1665
         )
-            
+    ];        
 }
 
 function accessInformation() {
-    var randomNumber = Math.floor(Math.random() * myViewFinderArray.length);
-    document.getElementById("title").innerHTML = myViewFinderArray[randomNumber].toString();
+    var randomNumber = Math.floor(Math.random() * myArtworkArray.length);
+    document.getElementById("myArtwork").innerHTML = myArtworkArray[randomNumber].toString();
+}
+
+window.onload = function() {
+    initializeArray();
+    document.getElementById("random-btn").addEventListener("click", accessInformation);
 }
