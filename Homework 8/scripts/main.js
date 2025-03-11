@@ -1,4 +1,4 @@
-var animalSelector = "#cow";
+var animalSelector = "#animal";
 var allAnimals = [];
 var imagePaths = ["images/cow.jpg", "images/bear.jpg", "images/sheep.webp"];
 var currentIndex = 0;
@@ -37,6 +37,7 @@ $(document).ready(function(){
         $(".stuff").fadeOut();
         $("#third").toggle();
         setInterval(moveSquare, 1000);
+        setTimeout(moveSquare, 1000);
         switchImage();
     });
 
@@ -54,6 +55,8 @@ function moveSquare()
 
 function switchImage() {
     currentIndex = (currentIndex + 1) % imagePaths.length;
+    allAnimals[0].imagePath = imagePaths[currentIndex];
+    
     $(animalSelector).fadeOut(function() {
         $(this).attr("src", imagePaths[currentIndex]).fadeIn();
     });
