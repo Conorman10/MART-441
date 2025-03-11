@@ -2,63 +2,59 @@ var animalSelector = "#animal";
 var allAnimals = [];
 var imagePaths = ["images/cow.jpg", "images/bear.jpg", "images/sheep.webp"];
 var currentIndex = 0;
+
 class animalInfo {
-    constructor(selector, imagePath)
-    {
-        this.selector = selector
+    constructor(selector, imagePath) {
+        this.selector = selector;
         this.imagePath = imagePath;
     }
 
-    get theSelector(){
+    get theSelector() {
         return this.selector;
     }
 
-    get theImagePath(){
+    get theImagePath() {
         return this.imagePath;
     }
 
-    toString()
-    {
+    toString() {
         return this.selector + ":" + this.imagePath;
     }
 }
 
-function initializeArray()
-{
+function initializeArray() {
     var animal = new animalInfo("#animal", imagePaths[0]);
     allAnimals.push(animal);
 }
 
-$(document).ready(function(){ 
+$(document).ready(function() { 
     initializeArray();
     $(allAnimals[0].theSelector).attr("src", allAnimals[0].theImagePath);
 
-    $("button").click(function(){
+    $("#move").click(function(){
         $(".stuff").fadeOut();
         $("#third").toggle();
-        setInterval(moveSquare, 1000);
-        setTimeout(moveSquare, 1000);
+        moveSquare();
         switchImage();
     });
 
     setInterval(changeText, 3000);
     setInterval(switchShape, 4000);
-});    
+});
 
-function moveSquare()
-    {
-        $("#square").animate({left:250}, "slow")
-        .animate({top:400}, "slow")
-        .animate({left:0}, "slow")
-        .animate({top:300}, "slow");
-    }
+function moveSquare() {
+    $("#square").animate({
+        left: Math.random() * 300 + "px",
+        top: Math.random() * 200 + "px"
+    }, "slow");
+}
 
 function switchImage() {
     currentIndex = (currentIndex + 1) % imagePaths.length;
     allAnimals[0].imagePath = imagePaths[currentIndex];
-    
+
     $(animalSelector).fadeOut(function() {
-        $(this).attr("src", imagePaths[currentIndex]).fadeIn();
+        $(this).attr("src", allAnimals[0].theImagePath).fadeIn();
     });
 }
 
@@ -69,7 +65,7 @@ function changeText() {
     textIndex = (textIndex + 1) % texts.length;
     $("#movingText").fadeOut(function() {
         $(this).text(texts[textIndex]).fadeIn();
-    });
+    }).animate({ left: Math.random() * 300 + "px", top: Math.random() * 200 + "px" }, "slow");
 }
 
 var shapes = ["50px", "75px", "100px"];
@@ -81,5 +77,8 @@ function switchShape() {
         "width": shapes[shapeIndex],
         "height": shapes[shapeIndex],
         "background-color": shapeIndex % 2 === 0 ? "blue" : "red"
-    });
-}    
+    }).animate({
+        left: Math.random() * 300 + "px",
+        top: Math.random() * 200 + "px"
+    }, "slow");
+}
