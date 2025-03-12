@@ -84,12 +84,21 @@ var shapeIndex = 0;
 
 function switchShape() {
     shapeIndex = (shapeIndex + 1) % shapes.length;
-    $("#square, #circle").css({
+    $("#square").css({
         "width": shapes[shapeIndex],
         "height": shapes[shapeIndex],
         "background-color": shapeIndex % 2 === 0 ? "blue" : "red"
     }).animate({
-        left: Math.random() * 300 + "px",
-        top: Math.random() * 200 + "px"
+        left: squareNewX + "px",
+        top: squareNewY + "px"
+    }, "slow");
+
+    $("#circle").css({
+        "width": shapes[shapeIndex],
+        "height": shapes[shapeIndex],
+        "background-color": shapeIndex % 2 === 0 ? "red" : "blue"
+    }).animate({
+        left: circleNewX + "px",
+        top: circleNewY + "px"
     }, "slow");
 }
