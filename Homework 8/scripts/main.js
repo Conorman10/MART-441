@@ -35,6 +35,7 @@ $(document).ready(function() {
         $(".stuff").fadeOut();
         $("#third").toggle();
         moveSquare();
+        moveImage();
         switchImage();
     });
 
@@ -46,6 +47,16 @@ function moveSquare() {
     $("#square").animate({
         left: Math.random() * 300 + "px",
         top: Math.random() * 200 + "px"
+    }, "slow");
+}
+
+function moveImage() {
+    let maxWidth = $(window).width() - $("#animal").width();
+    let maxHeight = $(window).height() - $("#animal").height();
+    
+    $("#animal").animate({
+        left: Math.random() * maxWidth + "px",
+        top: Math.random() * maxHeight + "px"
     }, "slow");
 }
 
