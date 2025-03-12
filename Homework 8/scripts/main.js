@@ -2,6 +2,8 @@ var animalSelector = "#animal";
 var allAnimals = [];
 var imagePaths = ["images/cow.jpg", "images/bear.jpg", "images/sheep.webp"];
 var currentIndex = 0;
+var shapes = ["50px", "75px", "100px"];
+var shapeIndex = 0;
 
 class animalInfo {
     constructor(selector, imagePath) {
@@ -84,7 +86,7 @@ var shapeIndex = 0;
 
 function switchShape() {
     shapeIndex = (shapeIndex + 1) % shapes.length;
-    $("#square").css({
+    $("#square, #circle").css({
         "width": shapes[shapeIndex],
         "height": shapes[shapeIndex],
         "background-color": shapeIndex % 2 === 0 ? "blue" : "red"
