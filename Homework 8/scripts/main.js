@@ -84,6 +84,16 @@ var shapeIndex = 0;
 
 function switchShape() {
     shapeIndex = (shapeIndex + 1) % shapes.length;
+
+    let squareMaxX = $(window).width() - $("#square").width();
+    let squareMaxY = $(window).height() - $("#square").height();
+    let circleMaxX = $(window).width() - $("#circle").width();
+    let circleMaxY = $(window).height() - $("#circle").height();
+    let squareNewX = Math.random() * squareMaxX;
+    let squareNewY = Math.random() * squareMaxY;
+    let circleNewX = Math.random() * circleMaxX;
+    let circleNewY = Math.random() * circleMaxY;
+    
     $("#square").css({
         "width": shapes[shapeIndex],
         "height": shapes[shapeIndex],
