@@ -1,8 +1,10 @@
+//variables
 var animalSelector = "#animal";
 var allAnimals = [];
 var imagePaths = ["images/cow.jpg", "images/bear.jpg", "images/sheep.webp"];
 var currentIndex = 0;
 
+//Javascript
 class animalInfo {
     constructor(selector, imagePath) {
         this.selector = selector;
@@ -22,11 +24,13 @@ class animalInfo {
     }
 }
 
+//Array
 function initializeArray() {
     var animal = new animalInfo("#animal", imagePaths[0]);
     allAnimals.push(animal);
 }
 
+//jQuery start function
 $(document).ready(function() { 
     initializeArray();
     $(allAnimals[0].theSelector).attr("src", allAnimals[0].theImagePath);
@@ -43,6 +47,7 @@ $(document).ready(function() {
     setInterval(switchShape, 4000);
 });
 
+//Square function
 function moveSquare() {
     $("#square").animate({
         left: Math.random() * 300 + "px",
@@ -50,6 +55,7 @@ function moveSquare() {
     }, "slow");
 }
 
+//Image Function
 function moveImage() {
     let maxWidth = $(window).width() - $("#animal").width();
     let maxHeight = $(window).height() - $("#animal").height();
@@ -60,6 +66,7 @@ function moveImage() {
     }, "slow");
 }
 
+//Switch Image
 function switchImage() {
     currentIndex = (currentIndex + 1) % imagePaths.length;
     allAnimals[0].imagePath = imagePaths[currentIndex];
@@ -69,9 +76,11 @@ function switchImage() {
     });
 }
 
+//Text variables
 var texts = ["Hello!", "Aloha!", "Goodbye!"];
 var textIndex = 0;
 
+//Text function
 function changeText() {
     textIndex = (textIndex + 1) % texts.length;
     $("#movingText").fadeOut(function() {
@@ -79,9 +88,11 @@ function changeText() {
     }).animate({ left: Math.random() * 300 + "px", top: Math.random() * 200 + "px" }, "slow");
 }
 
+//Shape Variables
 var shapes = ["50px", "75px", "100px"];
 var shapeIndex = 0;
 
+//Shape Functions (sheesh)
 function switchShape() {
     shapeIndex = (shapeIndex + 1) % shapes.length;
 
@@ -93,7 +104,7 @@ function switchShape() {
     let squareNewY = Math.random() * squareMaxY;
     let circleNewX = Math.random() * circleMaxX;
     let circleNewY = Math.random() * circleMaxY;
-    
+
     $("#square").css({
         "width": shapes[shapeIndex],
         "height": shapes[shapeIndex],
