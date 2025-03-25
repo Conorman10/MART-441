@@ -2,7 +2,8 @@ $('#loadData').on('click', async function() {
     let gdpData = [];
     try {
         const response = await fetch('scripts/data.json');
-        gdpData = await response.json();
+        const jsonData = await response.json();
+        gdpData = jsonData[1];
         loadTable(gdpData);
     } catch (error) {
         console.error('Error loading GDP data:', error);
@@ -23,6 +24,7 @@ function loadTable(data) {
 
 $(document).ready(function() {
     let currentSort = { column: 'year', ascending: true };
+    letgdpData = [];
 
     function sortData(column) {
         const isAscending = currentSort.column === column ? !currentSort.ascending : true;
@@ -37,8 +39,8 @@ $(document).ready(function() {
         loadTable(gdpData);
     }
 
-    $('#yearHeader').on('click', () => sortData('year'));
-    $('#gdpHeader').on('click', () => sortData('gdp'));
+    $('#yearHeader').on('click', () => sortData('date'));
+    $('#gdpHeader').on('click', () => sortData('value'));
 
     loadTable(gdpData);
 });
