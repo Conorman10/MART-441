@@ -6,7 +6,7 @@ $('#loadData').on('click', async function() {
 
         const jsonData = await response.json();
         console.log('Fetched data:', jsonData);
-        
+
         gdpData = jsonData[1].map(item => ({
             year: item.date,
             gdp: item.value
@@ -50,4 +50,5 @@ $(document).ready(function() {
     $('#gdpHeader').on('click', () => sortData('gdp'));
 
     $('#loadData').trigger('click'); 
+    console.log($);
 });
