@@ -1,15 +1,12 @@
-const gdpData = [
-    { "year": 2023, "gdp": 27.72 },
-    { "year": 2022, "gdp": 26.01 },
-    { "year": 2021, "gdp": 23.68 },
-    { "year": 2020, "gdp": 21.35 },
-    { "year": 2019, "gdp": 21.54 },
-    { "year": 2018, "gdp": 20.66 },
-    { "year": 2017, "gdp": 19.61 }
-];
-
-$('#loadData').on('click', function() {
-    loadTable(gdpData);
+$('#loadData').on('click', async function() {
+    let gdpData = [];
+    try {
+        const response = await fetch('data.json');
+        gdpData = await response.json();
+        loadTable(gdpData);
+    } catch (error) {
+        console.error('Error loading GDP data:', error);
+    }
 });
 
 function formatGDP(value) {
