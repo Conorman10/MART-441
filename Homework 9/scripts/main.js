@@ -1,4 +1,5 @@
 $('#loadData').on('click', async function() {
+    console.log('Button clicked');
     let gdpData = [];
     try {
         const response = await fetch('scripts/data.json');
