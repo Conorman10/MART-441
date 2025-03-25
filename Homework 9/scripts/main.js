@@ -8,8 +8,11 @@ const gdpData = [
     { "year": 2017, "gdp": 19.61 }
     ];
 
+$('#loadData').on('click', function() {
+    loadTable(gdpData);
+});   
+
 $(document).ready(function() {
-    // Populate table with GDP data
     function loadTable(data) {
         const tbody = $('#gdpTable tbody');
         tbody.empty();
@@ -22,19 +25,20 @@ $(document).ready(function() {
         $.fn.sortTable = function() {
             this.find('th').on('click', function() {
                 const key = $(this).data('sort');
+                const columnIndex = key === 'year' ? 0 : 1; 
+    
                 const rows = $('#gdpTable tbody tr').get();
-
+    
                 rows.sort((a, b) => {
-                    const A = parseFloat($(a).find('td').eq(key === 'year' ? 0 : 1).text());
-                    const B = parseFloat($(b).find('td').eq(key === 'year' ? 0 : 1).text());
-                    return A > B ? 1 : -1;
+                    const A = parseFloat($(a).find('td').eq(columnIndex).text());
+                    const B = parseFloat($(b).find('td').eq(columnIndex).text());
+                    return A - B; 
                 });
-
+    
                 $('#gdpTable tbody').append(rows);
             });
         };
     })(jQuery);
 
     $('#gdpTable').sortTable();
-
 });
