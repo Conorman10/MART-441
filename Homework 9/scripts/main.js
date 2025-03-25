@@ -6,39 +6,42 @@ const gdpData = [
     { "year": 2019, "gdp": 21.54 },
     { "year": 2018, "gdp": 20.66 },
     { "year": 2017, "gdp": 19.61 }
-    ];
+];
 
 $('#loadData').on('click', function() {
     loadTable(gdpData);
-});   
+});
+
+function formatGDP(value) {
+    return `$${(value / 1_000_000_000_000).toFixed(2)}T`;
+}
+
+function loadTable(data) {
+    const tbody = $('#gdpTable tbody');
+    tbody.empty();
+    data.forEach(item => {
+        tbody.append(`<tr><td>${item.year}</td><td>${formatGDP(item.gdp)}</td></tr>`);
+    });
+}
 
 $(document).ready(function() {
-    function loadTable(data) {
-        const tbody = $('#gdpTable tbody');
-        tbody.empty();
-        data.forEach(item => {
-            tbody.append(`<tr><td>${item.year}</td><td>${item.gdp}</td></tr>`);
+    let currentSort = { column: 'year', ascending: true };
+
+    function sortData(column) {
+        const isAscending = currentSort.column === column ? !currentSort.ascending : true;
+        currentSort = { column, ascending: isAscending };
+
+        gdpData.sort((a, b) => {
+            if (a[column] < b[column]) return isAscending ? -1 : 1;
+            if (a[column] > b[column]) return isAscending ? 1 : -1;
+            return 0;
         });
+
+        loadTable(gdpData);
     }
 
-    (function($) {
-        $.fn.sortTable = function() {
-            this.find('th').on('click', function() {
-                const key = $(this).data('sort');
-                const columnIndex = key === 'year' ? 0 : 1; 
-    
-                const rows = $('#gdpTable tbody tr').get();
-    
-                rows.sort((a, b) => {
-                    const A = parseFloat($(a).find('td').eq(columnIndex).text());
-                    const B = parseFloat($(b).find('td').eq(columnIndex).text());
-                    return A - B; 
-                });
-    
-                $('#gdpTable tbody').append(rows);
-            });
-        };
-    })(jQuery);
+    $('#yearHeader').on('click', () => sortData('year'));
+    $('#gdpHeader').on('click', () => sortData('gdp'));
 
-    $('#gdpTable').sortTable();
+    loadTable(gdpData);
 });
