@@ -1,7 +1,7 @@
 $('#loadData').on('click', async function() {
     let gdpData = [];
     try {
-        const response = await fetch('data.json');
+        const response = await fetch('scripts/data.json');
         gdpData = await response.json();
         loadTable(gdpData);
     } catch (error) {
