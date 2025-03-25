@@ -48,8 +48,6 @@ $(document).ready(function() {
     }
 
     $('#yearHeader').on('click', () => sortData('year'));
-    $('#gdpHeader').on('click', () => sortData('gdp'));
-
-    $('#loadData').trigger('click'); 
+    $('#gdpHeader').on('click', () => sortData('gdp')); 
     console.log($);
 });
