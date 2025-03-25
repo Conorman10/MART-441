@@ -2,7 +2,11 @@ $('#loadData').on('click', async function() {
     let gdpData = [];
     try {
         const response = await fetch('scripts/data.json');
+        if (!response.ok) throw new Error('Network response was not ok');
+
         const jsonData = await response.json();
+        console.log('Fetched data:', jsonData);
+        
         gdpData = jsonData[1].map(item => ({
             year: item.date,
             gdp: item.value
