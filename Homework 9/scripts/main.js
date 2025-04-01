@@ -3,7 +3,7 @@ $('#loadData').on('click', async function() {
     let gdpData = [];
     try {
         console.log('Attempting to fetch data.json...');
-        const response = await fetch('scripts/data.json');  // Adjust path if needed
+        const response = await fetch('scripts/data.json');  
         console.log('Response:', response);
         if (!response.ok) throw new Error('Network response was not ok');
 
