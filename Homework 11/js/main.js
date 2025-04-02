@@ -66,19 +66,27 @@ function getKey(event) {
 }
 
 function moveUp() {
-    square1.setY(square1.theY - 10);
+    if (square1.theY > 0) {
+        square1.setY(square1.theY - 10);
+    }
 }
 
 function moveDown() {
-    square1.setY(square1.theY + 10);
+    if (square1.theY + square1.theHeight < canvas.height) {
+        square1.setY(square1.theY + 10);
+    }   
 }
 
 function moveLeft() {
-    square1.setX(square1.theX - 10);
+    if (square1.theX > 0) {
+        square1.setX(square1.theX - 10);
+    }    
 }
 
 function moveRight() {
-    square1.setX(square1.theX + 10);
+    if (square1.theX + square1.theWidth < canvas.width) {
+        square1.setX(square1.theX + 10);
+    }    
 }
 
 function hasCollided(object1, object2) {
