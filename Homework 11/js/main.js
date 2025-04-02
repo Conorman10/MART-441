@@ -13,22 +13,24 @@ drawSquare();
 
 setInterval(moveBlueSquare, 5000);
 
+setInterval(drawSquare, 50);
+
 function createSquares() {
     square1 = new Square(x, y, 100, 100, "Red");
     square2 = new Square(x2, y2, 200, 200, "Blue");
 }
 
 function moveBlueSquare() {
-    square2.setX(Math.floor(Math.random() * canvas.width));
-    square2.setY(Math.floor(Math.random() * canvas.height));
+    square2.setX(Math.floor(Math.random() * (canvas.width - square2.theWidth)));
+    square2.setY(Math.floor(Math.random() * (canvas.height - square2.theHeight)));
 }
 
 function drawSquare() {
     ctx.clearRect(0, 0, 1000, 1000);
     ctx.fillStyle = square1.theColor;
-    ctx.fillRect(square1.theX, square1.theY, square1.theWidth, square1.theHeight);
+    ctx.fillRect(square1.X, square1.Y, square1.Width, square1.Height);
     ctx.fillStyle = square2.theColor;
-    ctx.fillRect(square2.theX, square2.theY, square2.theWidth, square2.theHeight);
+    ctx.fillRect(square2.X, square2.Y, square2.Width, square2.Height);
 }
 
 $(document).ready(function () {
@@ -78,9 +80,9 @@ function moveRight() {
 
 function hasCollided(object1, object2) {
     return !(
-        ((object1.y + object1.height) < (object2.y)) ||
-        (object1.y > (object2.y + object2.height)) ||
-        ((object1.x + object1.width) < object2.x) ||
-        (object1.x > (object2.x + object2.width))
+        ((object1.theY + object1.theHeight) < (object2.theY)) ||
+        (object1.theY > (object2.theY + object2.theHeight)) ||
+        ((object1.theX + object1.theWidth) < object2.theX) ||
+        (object1.theX > (object2.theX + object2.theWidth))
     );
 }
