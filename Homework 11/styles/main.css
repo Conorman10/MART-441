@@ -1,4 +1,7 @@
 #myCanvas {
     border: 5px solid black;
+    display: block;
+    background: linear-gradient(white, white) padding-box,
+    linear-gradient(45deg, red, blue, green, yellow) border-box;
 }
 
