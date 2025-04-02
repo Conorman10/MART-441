@@ -8,7 +8,7 @@ var square1;
 var square2;
 
 createSquares();
-drawSquare();
+moveBlueSquare();
 
 setInterval(moveBlueSquare, 5000);
 
