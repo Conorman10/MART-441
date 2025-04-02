@@ -11,7 +11,7 @@ createSquares();
 
 drawSquare();
 
-setInterval(moveGreenSquare, 5000);
+setInterval(moveBlueSquare, 5000);
 
 function createSquares() {
     square1 = new Square(x, y, 100, 100, "Red");
