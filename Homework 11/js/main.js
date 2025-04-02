@@ -8,12 +8,9 @@ var square1;
 var square2;
 
 createSquares();
-
-drawSquare();
+moveBlueSquare();
 
 setInterval(moveBlueSquare, 5000);
-
-setInterval(drawSquare, 50);
 
 function createSquares() {
     square1 = new Square(x, y, 100, 100, "Red");
@@ -23,15 +20,21 @@ function createSquares() {
 function moveBlueSquare() {
     square2.setX(Math.floor(Math.random() * (canvas.width - square2.theWidth)));
     square2.setY(Math.floor(Math.random() * (canvas.height - square2.theHeight)));
+
+    setTimeout(moveBlueSquare, 5000);
 }
 
 function drawSquare() {
-    ctx.clearRect(0, 0, 1000, 1000);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.fillStyle = square1.theColor;
-    ctx.fillRect(square1.X, square1.Y, square1.Width, square1.Height);
+    ctx.fillRect(square1.theX, square1.theY, square1.theWidth, square1.theHeight);
     ctx.fillStyle = square2.theColor;
-    ctx.fillRect(square2.X, square2.Y, square2.Width, square2.Height);
+    ctx.fillRect(square2.theX, square2.theY, square2.theWidth, square2.theHeight);
+
+    requestAnimationFrame(drawSquare);
 }
+
+requestAnimationFrame(drawSquare)
 
 $(document).ready(function () {
     $(this).keypress(function (event) {
@@ -43,8 +46,8 @@ function getKey(event) {
     var didCollide = hasCollided(square1, square2);
     if (didCollide) {
         canvas.style.backgroundColor = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ")";
-        square1.setWidth(square1.theWidth - 1);
-        square1.setHeight(square1.theHeight - 1);
+        square1.setWidth(Math.max(square1.theWidth - 1));
+        square1.setHeight(Math.max(square1.theHeight - 1));
         square2.setWidth(square2.theWidth + 1);
         square2.setHeight(square2.theHeight + 1);
     }
