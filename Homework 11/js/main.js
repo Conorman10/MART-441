@@ -24,7 +24,7 @@ function moveBlueSquare() {
 }
 
 function drawSquare() {
-    ctx.clearRect(0, 0, 800, 600);
+    ctx.clearRect(0, 0, 1000, 1000);
     ctx.fillStyle = square1.theColor;
     ctx.fillRect(square1.theX, square1.theY, square1.theWidth, square1.theHeight);
     ctx.fillStyle = square2.theColor;
