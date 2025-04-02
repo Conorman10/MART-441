@@ -15,7 +15,8 @@
     cursor: pointer;            
     transition: background-color 0.3s ease, transform 0.2s;
     text-align: center;          
-    text-transform: uppercase;    
+    text-transform: uppercase;   
+}     
 
 #musicButton:hover {
     background-color: #45a049;    
