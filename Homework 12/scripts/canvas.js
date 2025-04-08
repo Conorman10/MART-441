@@ -21,7 +21,8 @@ function setup(){
     ctx = canvas.getContext("2d");
 
     rectangle1 = new Rectangle(100,100,100,50,"#0000FF");
-    rectangle2 = new Rectangle(400,400,50,100,"#00FF00");    
+    rectangle2 = new Rectangle(400,400,50,100,"#00FF00");
+        
     $.getJSON("data/data.json", function(data) {
         for(var i = 0; i < data.rectangle.length; i++)
         {
