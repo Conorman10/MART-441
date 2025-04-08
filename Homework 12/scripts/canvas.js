@@ -124,6 +124,9 @@ function drawRectangle()
     for (let i = 0; i < collectibles.length; i++) {
         ctx.fillStyle = collectibles[i].mainColor;
         ctx.fillRect(collectibles[i].x, collectibles[i].y, collectibles[i].width, collectibles[i].height);
+        ctx.strokeStyle = "#FF00FF"; 
+        ctx.lineWidth = 2;
+        ctx.strokeRect(collectibles[i].x, collectibles[i].y, collectibles[i].width, collectibles[i].height);
     }
     
     ctx.font = "30px Times New Roman";
