@@ -44,7 +44,7 @@ function setup(){
 }
 
 function getKey(event) {
-    let key = event.key;
+    let key = event.key.toLowerCase();
     let prevX = rectangle1.x;
     let prevY = rectangle1.y;
 
