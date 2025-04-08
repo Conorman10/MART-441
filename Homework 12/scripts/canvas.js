@@ -31,3 +31,109 @@ function setup(){
     });
 
 }
+
+function getKey(event)
+{
+    var char = event.which || event.keyCode;
+    var actualLetter = String.fromCharCode(char);
+    if(actualLetter == "w")
+    {
+        moveUp();
+        direction = "up";
+    }
+    if(actualLetter == "s")
+    {
+        moveDown();
+        direction = "down";
+    }
+    if(actualLetter == "a")
+    {
+        moveLeft();
+        direction = "left";
+    }
+    if(actualLetter == "d")
+    {
+        moveRight();
+        direction = "right";
+    }
+    var test = hasCollided(rectangle1,rectangle2);
+    var test2 = false;
+    for(var i = 0; i < rectangleArray.length; i++)
+    {
+
+        test2 = hasCollided(rectangle1,rectangleArray[i]);
+        if(test2 == true)
+        {
+            break;
+        }
+        
+    }
+
+    if(test || test2)
+    {
+        lives--;
+        if(direction == "left")
+        {
+            moveRight();
+        }
+        else if(direction == "right")
+        {
+            moveLeft();
+        }
+        else if(direction == "up")
+        {
+            moveDown();
+        }
+        else if(direction == "down")
+        {
+            moveUp();
+        }
+    
+    }
+    drawRectangle(); 
+    
+}
+
+function moveUp()
+{
+    square1.y-=10;
+}
+function moveDown()
+{
+    square1.y+=10;
+}
+function moveRight()
+{
+    square1.x+=10;
+}
+function moveLeft()
+{
+    square1.x-=10;
+}
+
+function drawSquare()
+{
+    ctx.clearRect(0,0,1000,1000);
+    ctx.fillStyle = rectangle1.mainColor;
+    ctx.fillRect(rectangle1.x, rectangle1.y, rectangle1.width, rectangle1.height);
+    ctx.fillStyle = rectangle2.mainColor;
+    ctx.fillRect(rectangle2.x, rectangle2.y, rectangle2.width, rectangle2.height);
+    for(var i = 0; i < rectangleArray.length; i++)
+    {
+        ctx.fillStyle = rectangleArray[i].mainColor;
+        ctx.fillRect(rectangleArray[i].x, rectangleArray[i].y, rectangleArray[i].width, rectangleArray[i].height);
+    }
+
+    ctx.font = "30px Times New Roman";
+    ctx.fillText("Lives: " + lives, 10, 50);    
+
+}
+
+function hasCollided(object1, object2) {
+    return !(
+        ((object1.y + object1.height) < (object2.y)) ||
+        (object1.y > (object2.y + object2.height)) ||
+        ((object1.x + object1.width) < object2.x) ||
+        (object1.x > (object2.x + object2.width))
+    );
+}
