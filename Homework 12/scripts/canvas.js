@@ -23,7 +23,7 @@ function setup(){
     canvas = document.getElementById("myCanvas");
     ctx = canvas.getContext("2d");
 
-    rectangle1 = new Rectangle(100,100,100,50,"#0000FF");
+    rectangle1 = new Rectangle(50, 50, 50, 50, "#0000FF");
     rectangle2 = new Rectangle(400,400,50,100,"#00FF00");
 
     $.getJSON("data/data.json", function(data) {
@@ -70,6 +70,10 @@ function getKey(event) {
         rectangle1.x = prevX;
         rectangle1.y = prevY;
         lives--;
+    }
+
+    if (hitObstacle) {
+        console.log("Collision detected with something!");
     }
 
     checkCollectibles();  
@@ -125,6 +129,18 @@ function hasCollided(object1, object2) {
         ((object1.x + object1.width) < object2.x) ||
         (object1.x > (object2.x + object2.width))
     );
+
+    if (hitObstacle && !invincible) {
+        rectangle1.x = prevX;
+        rectangle1.y = prevY;
+        lives--;
+    }
+    
+    if (hitObstacle) {
+        console.log("Collision detected with something!");
+    }
+
+    return collided;
 }
 
 function checkCollectibles() {
@@ -135,3 +151,6 @@ function checkCollectibles() {
         }
     }
 }
+
+let invincible = true;
+setTimeout(() => invincible = false, 1000);
