@@ -13,7 +13,7 @@ var score = 0;
 $(document).ready(function(){
     setup();
 
-    $(this).keypress(function(event){
+    $(this).keydown(function(event){
         getKey(event);
 
     });
@@ -43,68 +43,38 @@ function setup(){
 
 }
 
-function getKey(event)
-{
-    var char = event.which || event.keyCode;
-    var actualLetter = String.fromCharCode(char);
-    if(actualLetter == "w")
-    {
-        moveUp();
+function getKey(event) {
+    let key = event.key;
+    let prevX = rectangle1.x;
+    let prevY = rectangle1.y;
+
+    
+    if (key === "ArrowUp" || key === "w") {
+        rectangle1.y -= 10;
         direction = "up";
-    }
-    if(actualLetter == "s")
-    {
-        moveDown();
+    } else if (key === "ArrowDown" || key === "s") {
+        rectangle1.y += 10;
         direction = "down";
-    }
-    if(actualLetter == "a")
-    {
-        moveLeft();
+    } else if (key === "ArrowLeft" || key === "a") {
+        rectangle1.x -= 10;
         direction = "left";
-    }
-    if(actualLetter == "d")
-    {
-        moveRight();
+    } else if (key === "ArrowRight" || key === "d") {
+        rectangle1.x += 10;
         direction = "right";
     }
-    var test = hasCollided(rectangle1,rectangle2);
-    var test2 = false;
-    for(var i = 0; i < rectangleArray.length; i++)
-    {
 
-        test2 = hasCollided(rectangle1,rectangleArray[i]);
-        if(test2 == true)
-        {
-            break;
-        }
-        
-    }
+    
+    let hitObstacle = hasCollided(rectangle1, rectangle2) || rectangleArray.some(rect => hasCollided(rectangle1, rect));
 
-    if(test || test2)
-    {
+    if (hitObstacle) {
+        rectangle1.x = prevX;
+        rectangle1.y = prevY;
         lives--;
-        if(direction == "left")
-        {
-            moveRight();
-        }
-        else if(direction == "right")
-        {
-            moveLeft();
-        }
-        else if(direction == "up")
-        {
-            moveDown();
-        }
-        else if(direction == "down")
-        {
-            moveUp();
-        }
-    
     }
-    checkCollectibles();
-    drawRectangle(); 
-    
-}
+
+    checkCollectibles();  
+    drawRectangle();      
+    }
 
 function moveUp()
 {
