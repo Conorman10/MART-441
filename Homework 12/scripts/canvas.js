@@ -39,6 +39,8 @@ function setup(){
             collectibles.push(new Rectangle(data.collectibles[i].x, data.collectibles[i].y, data.collectibles[i].h, data.collectibles[i].w, data.collectibles[i].color));
         }
         drawRectangle();
+
+        setTimeout(() => invincible = false, 1000);
     });
 
 }
@@ -67,9 +69,12 @@ function getKey(event) {
     let hitObstacle = hasCollided(rectangle1, rectangle2) || rectangleArray.some(rect => hasCollided(rectangle1, rect));
 
     if (hitObstacle) {
+        console.log("Collision detected with something!");
         rectangle1.x = prevX;
         rectangle1.y = prevY;
-        lives--;
+        if (!invincible) {
+            lives--;
+        }
     }
 
     if (hitObstacle) {
@@ -129,18 +134,6 @@ function hasCollided(object1, object2) {
         ((object1.x + object1.width) < object2.x) ||
         (object1.x > (object2.x + object2.width))
     );
-
-    if (hitObstacle && !invincible) {
-        rectangle1.x = prevX;
-        rectangle1.y = prevY;
-        lives--;
-    }
-    
-    if (hitObstacle) {
-        console.log("Collision detected with something!");
-    }
-
-    return collided;
 }
 
 function checkCollectibles() {
