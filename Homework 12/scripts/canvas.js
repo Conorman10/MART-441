@@ -101,6 +101,7 @@ function getKey(event)
         }
     
     }
+    checkCollectibles();
     drawRectangle(); 
     
 }
