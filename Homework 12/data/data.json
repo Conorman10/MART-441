@@ -1,4 +1,4 @@
-{"squares":[
+{"rectangle":[
     {"x":100, "y":100, "h":20, "w":40, "color":"blue"},
     {"x":300,"y":300,"h":40,"w":20,"color":"red"},
     {"x":500,"y":500,"h":25,"w":25,"color":"orange"},

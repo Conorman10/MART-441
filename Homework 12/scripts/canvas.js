@@ -5,12 +5,12 @@ var y = 100;
 var rectangle1, rectangle2;
 var direction;
 var questions;
-var squareArray = [];
+var rectangleArray = [];
 var lives = 3;
 $(document).ready(function(){
     setup();
 
-    $(this).keypreess(function(event){
+    $(this).keypress(function(event){
         getKey(event);
 
     });
@@ -20,10 +20,10 @@ function setup(){
     canvas = document.getElementById("myCanvas");
     ctx = canvas.getContext("2d");
 
-    rectangle1 = new Square(100,100,100,50,"#0000FF");
-    rectangle2 = new Square(400,400,50,100,"#00FF00");    
+    rectangle1 = new Rectangle(100,100,100,50,"#0000FF");
+    rectangle2 = new Rectangle(400,400,50,100,"#00FF00");    
     $.getJSON("data/data.json", function(data) {
-        for(var i = 0; i < data.square.length; i++)
+        for(var i = 0; i < data.rectangle.length; i++)
         {
             rectangleArray.push(new Rectangle(data.rectangles[i].x, data.rectangles[i].y, data.rectangles[i].h, data.rectangles[i].w, data.rectangles[i].color));
         }
@@ -96,19 +96,19 @@ function getKey(event)
 
 function moveUp()
 {
-    square1.y-=10;
+    rectangle1.y-=10;
 }
 function moveDown()
 {
-    square1.y+=10;
+    rectangle1.y+=10;
 }
 function moveRight()
 {
-    square1.x+=10;
+    rectangle1.x+=10;
 }
 function moveLeft()
 {
-    square1.x-=10;
+    rectangle1.x-=10;
 }
 
 function drawSquare()
