@@ -22,9 +22,9 @@ function setup(){
 
     rectangle1 = new Rectangle(100,100,100,50,"#0000FF");
     rectangle2 = new Rectangle(400,400,50,100,"#00FF00");
-        
+
     $.getJSON("data/data.json", function(data) {
-        for(var i = 0; i < data.rectangle.length; i++)
+        for(var i = 0; i < data.rectangles.length; i++)
         {
             rectangleArray.push(new Rectangle(data.rectangles[i].x, data.rectangles[i].y, data.rectangles[i].h, data.rectangles[i].w, data.rectangles[i].color));
         }
