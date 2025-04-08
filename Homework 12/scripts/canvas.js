@@ -23,7 +23,7 @@ function setup(){
     canvas = document.getElementById("myCanvas");
     ctx = canvas.getContext("2d");
 
-    rectangle1 = new Rectangle(50, 50, 50, 50, "#0000FF");
+    rectangle1 = new Rectangle(50, 50, 50, 50, "#FF1493");
     rectangle2 = new Rectangle(400,400,50,100,"#00FF00");
 
     $.getJSON("data/data.json", function(data) {
@@ -105,10 +105,16 @@ function moveLeft()
 function drawRectangle()
 {
     ctx.clearRect(0,0,1000,1000);
+
     ctx.fillStyle = rectangle1.mainColor;
     ctx.fillRect(rectangle1.x, rectangle1.y, rectangle1.width, rectangle1.height);
+    ctx.strokeStyle = "#FFD700"; 
+    ctx.lineWidth = 4;
+    ctx.strokeRect(rectangle1.x, rectangle1.y, rectangle1.width, rectangle1.height);
+
     ctx.fillStyle = rectangle2.mainColor;
     ctx.fillRect(rectangle2.x, rectangle2.y, rectangle2.width, rectangle2.height);
+
     for(var i = 0; i < rectangleArray.length; i++)
     {
         ctx.fillStyle = rectangleArray[i].mainColor;
