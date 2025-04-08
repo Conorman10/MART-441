@@ -17,5 +17,15 @@ $(document).ready(function(){
 });
 
 function setup(){
-    canvas = document.getElementById("")
+    canvas = document.getElementById("myCanvas");
+    ctx = canvas.getContext("2d");
+
+    $.getJSON("data/data.json", function(data) {
+        for(var i = 0; i < data.square.length; i++)
+        {
+            rectangleArray.push(new Rectangle(data.rectangles[i].x, data.rectangles[i].y, data.rectangles[i].h, data.rectangles[i].w, data.rectangles[i].color));
+        }
+        drawRectangle();
+    });
+
 }
