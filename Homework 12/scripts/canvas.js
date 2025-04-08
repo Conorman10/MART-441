@@ -7,6 +7,9 @@ var direction;
 var questions;
 var rectangleArray = [];
 var lives = 3;
+var collectibles = [];
+var score = 0;
+
 $(document).ready(function(){
     setup();
 
@@ -27,6 +30,13 @@ function setup(){
         for(var i = 0; i < data.rectangles.length; i++)
         {
             rectangleArray.push(new Rectangle(data.rectangles[i].x, data.rectangles[i].y, data.rectangles[i].h, data.rectangles[i].w, data.rectangles[i].color));
+        }
+        drawRectangle();
+    });
+
+    $.getJSON("data/collectibles.json", function(data) {
+        for (let i = 0; i < data.collectibles.length; i++) {
+            collectibles.push(new Rectangle(data.collectibles[i].x, data.collectibles[i].y, data.collectibles[i].h, data.collectibles[i].w, data.collectibles[i].color));
         }
         drawRectangle();
     });
@@ -125,8 +135,15 @@ function drawRectangle()
         ctx.fillRect(rectangleArray[i].x, rectangleArray[i].y, rectangleArray[i].width, rectangleArray[i].height);
     }
 
+    for (let i = 0; i < collectibles.length; i++) {
+        ctx.fillStyle = collectibles[i].mainColor;
+        ctx.fillRect(collectibles[i].x, collectibles[i].y, collectibles[i].width, collectibles[i].height);
+    }
+    
     ctx.font = "30px Times New Roman";
-    ctx.fillText("Lives: " + lives, 10, 50);    
+    ctx.fillStyle = "black";
+    ctx.fillText("Lives: " + lives, 10, 50);
+    ctx.fillText("Score: " + score, 10, 90);
 
 }
 
@@ -137,4 +154,13 @@ function hasCollided(object1, object2) {
         ((object1.x + object1.width) < object2.x) ||
         (object1.x > (object2.x + object2.width))
     );
+}
+
+function checkCollectibles() {
+    for (let i = collectibles.length - 1; i >= 0; i--) {
+        if (hasCollided(rectangle1, collectibles[i])) {
+            collectibles.splice(i, 1);
+            score++;
+        }
+    }
 }
