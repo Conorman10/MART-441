@@ -102,17 +102,8 @@ function moveLeft()
     rectangle1.x-=10;
 }
 
-function drawBackground() {
-    let gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
-    gradient.addColorStop(0, "#ff7f50"); // coral
-    gradient.addColorStop(1, "#1e90ff"); // dodger blue
-    ctx.fillStyle = gradient;
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-}
-
 function drawRectangle()
 {
-    drawBackground();
     ctx.clearRect(0,0,1000,1000);
 
     ctx.fillStyle = rectangle1.mainColor;
