@@ -111,7 +111,7 @@ function moveLeft()
     rectangle1.x-=10;
 }
 
-function drawSquare()
+function drawRectangle()
 {
     ctx.clearRect(0,0,1000,1000);
     ctx.fillStyle = rectangle1.mainColor;
