@@ -50,6 +50,7 @@ function preload ()
     this.load.image('star', 'assets/star.png');
     this.load.image('bomb', 'assets/bomb.png');
     this.load.spritesheet('dude', 'assets/dude.png', { frameWidth: 32, frameHeight: 48 });
+    this.load.image('spike', 'assets/spikedball.png')
 }
 
 function create ()
@@ -131,6 +132,15 @@ function create ()
     this.physics.add.overlap(player, stars, collectStar, null, this);
 
     this.physics.add.collider(player, bombs, hitBomb, null, this);
+
+    spikes = this.physics.add.group({
+        key: 'spike',
+        repeat: 4,
+        setXY: {x: 100, y:0, stepX:150}
+    });
+
+    this.physics.add.collider(spikes, platforms);
+    this.physics.add.overlap(player, spikes, hitSpike, null, this);
 }
 
 function update ()
@@ -185,7 +195,7 @@ function collectStar (player, star)
         var x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
 
         var bomb = bombs.create(x, 16, 'bomb');
-        bomb.setScale(0.3);
+        bomb.setScale(0.5);
         bomb.setBounce(1);
         bomb.setCollideWorldBounds(true);
         bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
@@ -202,6 +212,13 @@ function hitBomb (player, bomb)
 
     player.anims.play('turn');
 
+    gameOver = true;
+}
+
+function hitSpike(player, spike) {
+    this.physics.pause();
+    player.setTint(0xff000);
+    player.aims.play('turn');
     gameOver = true;
 }
 
