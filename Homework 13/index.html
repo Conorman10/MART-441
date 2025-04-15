@@ -118,7 +118,7 @@ function create ()
 
     });
 
-    spikes = this.physics.add.staticGroup({
+    spikes = this.physics.add.group({
         key: 'spike',
         repeat: 4,
         setXY: {x: 100, y:0, stepX:200}
@@ -126,7 +126,7 @@ function create ()
 
     spikes.children.iterate(function (child) {
         child.setScale(0.5);     
-        child.refreshBody();     
+        child.body.setSize(child.width * 0.5, child.height * 0.5, true);     
     });
     
     this.physics.add.collider(spikes, platforms);
