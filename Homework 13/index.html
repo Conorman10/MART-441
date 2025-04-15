@@ -62,6 +62,9 @@ function create ()
 
     levelText = this.add.text(16, 50, 'Level: 1', { fontSize: '32px', fill: '#000'});
 
+    timerText = this.add.text(600, 16, 'Time: 0', { fontSize: '32px', fill: '#000' });
+    startTime = this.time.now;
+
     //  The platforms group contains the ground and the 2 ledges we can jump on
     platforms = this.physics.add.staticGroup();
 
@@ -157,6 +160,9 @@ function create ()
 
 function update ()
 {
+    let currentTime = Math.floor((this.time.now - startTime) / 1000);
+    timerText.setText('Time: ' + currentTime);
+    
     if (gameOver)
     {
         return;
