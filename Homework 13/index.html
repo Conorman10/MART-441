@@ -112,6 +112,8 @@ function create ()
 
         //  Give each star a slightly different bounce
         child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
+        child.setScale(0.5);
+        child.setGravityY(Phaser.Math.Between(50,200));
 
     });
 
