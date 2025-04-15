@@ -138,6 +138,11 @@ function create ()
         repeat: 4,
         setXY: {x: 100, y:0, stepX:200}
     });
+
+    spikes.children.iterate(function (child) {
+        child.setScale(0.3);
+        child.refreshBody();
+    });
     
     this.physics.add.collider(spikes, platforms);
     this.physics.add.overlap(player, spikes, hitSpike, null, this);
