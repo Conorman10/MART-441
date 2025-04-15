@@ -136,11 +136,12 @@ function create ()
     spikes = this.physics.add.group({
         key: 'spike',
         repeat: 4,
-        setXY: {x: 100, y:0, stepX:150}
+        setXY: {x: 100, y:0, stepX:200}
     });
     
     this.physics.add.collider(spikes, platforms);
     this.physics.add.overlap(player, spikes, hitSpike, null, this);
+
 }
 
 function update ()
