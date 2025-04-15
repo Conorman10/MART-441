@@ -118,6 +118,17 @@ function create ()
 
     });
 
+    spikes = this.physics.add.group({
+        key: 'spike',
+        repeat: 4,
+        setXY: {x: 100, y:0, stepX:200}
+    });
+
+    spikes.children.iterate(function (child) {
+        child.setScale(0.5);      // Make spike half the size
+        child.refreshBody();      
+    });
+    
     bombs = this.physics.add.group();
 
     //  The score
@@ -130,20 +141,7 @@ function create ()
 
     //  Checks to see if the player overlaps with any of the stars if he does call the collectStar function
     this.physics.add.overlap(player, stars, collectStar, null, this);
-
     this.physics.add.collider(player, bombs, hitBomb, null, this);
-
-    spikes = this.physics.add.group({
-        key: 'spike',
-        repeat: 4,
-        setXY: {x: 100, y:0, stepX:200}
-    });
-
-    spikes.children.iterate(function (child) {
-        child.setScale(0.5);      
-        child.refreshBody();      
-    });
-    
     this.physics.add.collider(spikes, platforms);
     this.physics.add.overlap(player, spikes, hitSpike, null, this);
 
