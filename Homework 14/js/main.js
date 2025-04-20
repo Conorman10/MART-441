@@ -1,5 +1,3 @@
-THREE.TrackballControls = TrackballControls;
-THREE.OBJLoader = OBJLoader;
 var scene = getScene();
 var camera = getCamera();
 var light = getLight(scene);
