@@ -19,17 +19,15 @@ cube2.position.x = 2;
 scene.add(cube2);
 
 // Model
+var skull; 
 function loadModel() {
-    var loader = new THREE.OBJLoader();
-    loader.load('Skull.obj', function (object) {
-      skull = object;
-      skull.position.set(0, 0, 0); // Position the skull within the camera view
-      skull.scale.set(0.1, 0.1, 0.1); // Scale down the skull if it's too large
-      scene.add(skull);
-    }, undefined, function (error) {
-      console.error('An error happened while loading the model:', error);
-    });
-  }
+  var loader = new THREE.OBJLoader();
+  loader.load('Skull.obj', function (object) {
+    skull = object; 
+    skull.position.y = -20; 
+    scene.add(skull);
+  });
+}
 
 function render() {
   requestAnimationFrame(render);
