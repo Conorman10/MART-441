@@ -3,8 +3,6 @@ var camera = getCamera();
 var light = getLight(scene);
 var renderer = getRenderer();
 
-loadModel();
-
 // === OBJECTS ===
 
 // Green Cube
