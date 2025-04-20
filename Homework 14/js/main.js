@@ -1,9 +1,7 @@
-
 var scene = getScene();
 var camera = getCamera();
 var light = getLight(scene);
 var renderer = getRenderer();
-var controls = getControls(camera, renderer);
 
 // === OBJECTS ===
 
@@ -20,24 +18,34 @@ var cube2 = new THREE.Mesh(geometry2, material2);
 cube2.position.x = 2;
 scene.add(cube2);
 
-// === RENDER LOOP ===
+var skull; // Declare a variable for the skull model
+function loadModel() {
+  var loader = new THREE.OBJLoader();
+  loader.load('Skull.obj', function (object) {
+    skull = object; // Assign the loaded model to the skull variable
+    skull.position.y = -20; // Position it below the cubes
+    scene.add(skull);
+  });
+}
+
 function render() {
   requestAnimationFrame(render);
 
-  // Rotate cubes
   cube1.rotation.x += 0.01;
   cube1.rotation.y += 0.01;
 
   cube2.rotation.x += 0.01;
   cube2.rotation.y += 0.01;
 
-  controls.update();
+  if (skull) {
+    skull.rotation.x += 0.01;
+    skull.rotation.y += 0.01;
+  }
+
   renderer.render(scene, camera);
 }
 
 render();
-
-// === HELPERS ===
 
 function getScene() {
   var scene = new THREE.Scene();
