@@ -1,5 +1,3 @@
-THREE.TrackballControls = TrackballControls;
-THREE.OBJLoader = OBJLoader;
 
 var scene = getScene();
 var camera = getCamera();
@@ -21,20 +19,6 @@ var material2 = new THREE.MeshBasicMaterial({ color: 0x0000ff });
 var cube2 = new THREE.Mesh(geometry2, material2);
 cube2.position.x = 2;
 scene.add(cube2);
-
-// === LOAD MODEL ===
-function loadModel() {
-  var loader = new THREE.OBJLoader();
-  loader.load('Skull.obj', function (object) {
-    object.rotation.z = Math.PI;
-    object.position.y = -20;
-    scene.add(object);
-    const h1 = document.querySelector('h1');
-    if (h1) h1.style.display = 'none';
-  });
-}
-
-loadModel();
 
 // === RENDER LOOP ===
 function render() {
@@ -85,8 +69,3 @@ function getRenderer() {
   document.body.appendChild(renderer.domElement);
   return renderer;
 }
-
-function getControls(camera, renderer) {
-  return new THREE.TrackballControls(camera, renderer.domElement);
-}
-
