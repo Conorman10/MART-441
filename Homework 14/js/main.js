@@ -3,6 +3,8 @@ var camera = getCamera();
 var light = getLight(scene);
 var renderer = getRenderer();
 
+loadModel();
+
 // === OBJECTS ===
 
 // Green Cube
@@ -24,6 +26,7 @@ function loadModel() {
   var loader = new THREE.OBJLoader();
   loader.load('models/tree.obj', function (object) {
     tree = object; 
+    tree.scale.set(10, 10, 10);
     tree.position.y = -20; 
     scene.add(tree);
   });
@@ -78,3 +81,5 @@ function getRenderer() {
   document.body.appendChild(renderer.domElement);
   return renderer;
 }
+
+
