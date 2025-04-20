@@ -19,13 +19,13 @@ cube2.position.x = 2;
 scene.add(cube2);
 
 // Model
-var skull; 
+var tree; 
 function loadModel() {
   var loader = new THREE.OBJLoader();
-  loader.load('Skull.obj', function (object) {
-    skull = object; 
-    skull.position.y = -20; 
-    scene.add(skull);
+  loader.load('models/tree.obj', function (object) {
+    tree = object; 
+    tree.position.y = -20; 
+    scene.add(tree);
   });
 }
 
@@ -38,9 +38,9 @@ function render() {
   cube2.rotation.x += 0.01;
   cube2.rotation.y += 0.01;
 
-  if (skull) {
-    skull.rotation.x += 0.01;
-    skull.rotation.y += 0.01;
+  if (tree) {
+    tree.rotation.x += 0.01;
+    tree.rotation.y += 0.01;
   }
 
   renderer.render(scene, camera);
