@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="my website">
+        <meta name="author" content="Conor Manley">
+        <meta name="viewport" content="width-device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" type="text/css" href="./style.css">
+
+        <title>
+            CONORSWORLD
+        </title>    
+
+    </head>
+
+    <body>
+
+        <nav>
+            <a href="index.html">
+                <img src="./images/logoCM.jpg" alt="Conor Manley" class="circular-img" width="200" style="float: left">
+            </a>
+        </nav>
+
+        
+        <div class="sidenav">
+            <a>
+                <span onclick="openNav()">&#9776; open</span>
+            </a>    
+        </div>
+             
+        <script>
+            function openNav() {
+            document.getElementById("myNav").style.width = "100%";
+            }
+    
+            function closeNav() {
+            document.getElementById("myNav").style.width = "0%";
+            }
+        </script>
+        
+        <div id="myNav" class="overlay">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <div class="overlay-content">
+              <a href="./index.html">Home</a>
+              <a href="./portfolio.html">Portfolio</a>
+              <a href="./contact.html">Contact</a>
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <a>&#xA9 2025 Conor Manley</a>
+            </div>
+        </div>
+
+        <h1 style="margin-right: 220px">
+            About Me
+        </h1>
+
+        <br />
+        <br />
+
+        <div class="conor-photo">
+            <img src="./images/me.jpg"  class="circular-img" alt="Conor Manley">
+        </div>
+
+        <br />
+
+        <div class="about">
+            <p>
+                As a professional videographer, my goal is to create videos that will be able to stand the test of time. 
+                In order to do so, I specifically tailor my videography to what the world is going to be like in the future. 
+                In today's ever-changing society, it is important that our media can give people apositive outlook on what the world is going to look like.
+                With my help, your videos will appeal to anyone that comes across them, and will leave a lasting impression on your viewers that is sure to brighten their day.
+            </p>
+
+            <br />
+            <br />
+            <br />
+            <br />
+
+            <p>
+                Email: conorjmanley@gmail.com
+            </p>
+
+            <p>
+                Phone: 206-535-0633
+            </p>
+        </div>
+
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+
+        <nav>
+            <a href="./about.html"><b>Back to the Top</b></a>
+        </nav>
+
+    </body>    

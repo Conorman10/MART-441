@@ -47,7 +47,6 @@ function render() {
   renderer.render(scene, camera);
 }
 
-loadModel();
 render();
 
 function getScene() {
