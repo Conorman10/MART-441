@@ -1,9 +1,20 @@
 nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     background-color: red;
-    text-align: left;
-    color: rgb(0, 0, 0);
     padding: 2.0%;
     border: 5px black solid;
+}
+
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 2em;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    top: 0;
+    z-index: 0;
 }
 
 a {
@@ -17,15 +28,17 @@ body {
     text-align: center; 
     margin-right: 0 auto;
     background-image: url("./images/background.jpg");
+    padding-right: 160px;
     }
 
 img {
     border: 10px solid rgb(247, 252, 252);
     border-radius: 50%;
+    max-width: 1500px;
 }
 
 h1 {
-    font-size: 100px;
+    font-size: 130px;
     color: #f0f0f0; 
     text-align: center; 
     font-family: 'Orbitron', sans-serif; 
@@ -59,7 +72,8 @@ h2 {
     font-size: 50px;
     color: white;
 }
-  
+ 
+
 .sidenav {
     height: 100%;
     width: 160px;
@@ -166,6 +180,7 @@ h2 {
     text-align: center;
     font-size: 40px;
     padding: 20px;
+    padding-right: 180px;
     margin: 0 auto;
     background: linear-gradient(135deg, #1a1a1a, #333333); 
     border: 3px solid red; 
@@ -274,62 +289,5 @@ img:hover, iframe:hover {
     box-shadow: 0 0 25px rgba(255, 0, 0, 1); 
 }
 
-.contact-form {
-    background: linear-gradient(135deg, #1a1a1a, #333333);
-    padding: 40px;
-    margin: 50px auto;
-    border: 3px solid red;
-    border-radius: 15px;
-    box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
-    max-width: 800px;
-    text-align: center;
-}
 
-.contact-form h2 {
-    color: white;
-    font-family: 'Orbitron', sans-serif;
-    letter-spacing: 3px;
-    font-size: 50px;
-    margin-bottom: 30px;
-    animation: neon-glow 1.5s infinite alternate;
-    text-align: center;
-}
-
-.contact-form input[type="text"],
-.contact-form input[type="email"],
-.contact-form textarea {
-    width: 90%;
-    padding: 15px;
-    margin: 10px 0;
-    border: 2px solid red;
-    border-radius: 10px;
-    background-color: black;
-    color: white;
-    font-size: 20px;
-    font-family: 'Lato', sans-serif;
-}
-
-.contact-form input[type="text"]::placeholder,
-.contact-form input[type="email"]::placeholder,
-.contact-form textarea::placeholder {
-    color: gray;
-}
-
-.contact-form button {
-    background-color: red;
-    color: white;
-    border: none;
-    padding: 15px 40px;
-    font-size: 24px;
-    font-family: 'Orbitron', sans-serif;
-    border-radius: 10px;
-    cursor: pointer;
-    box-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
-    transition: 0.3s ease-in-out;
-}
-
-.contact-form button:hover {
-    background-color: darkred;
-    box-shadow: 0 0 25px rgba(255, 0, 0, 1);
-}
 
