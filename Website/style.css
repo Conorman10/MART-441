@@ -23,6 +23,10 @@ a {
     font-size: 20px;
 } 
 
+a:visited {
+    color: purple;
+}
+
 body {
     font-family: 'Lato', sans-serif; 
     text-align: center; 
@@ -159,20 +163,10 @@ h2 {
     .sidenav a {font-size: 18px;}
 }
 
-.img-conor-photo {
-    float: left;
-    padding-left: 4em;
-    padding-top: 2em;
-}
-
 .img-services {
     border: none;
     border-radius: 0%;
     width: 1000px
-}
-
-.video-services {
-    width: 500px
 }
 
 .about {
@@ -208,14 +202,6 @@ h2 {
             0 0 20px rgba(0, 255, 255, 1), 
             inset 0 0 10px rgba(0, 255, 255, 0.5);
     }
-}
-
-.contact {
-    color: black;
-    text-align: center;
-    font-size: 30px;
-    padding: 100px;
-    margin: auto;
 }
 
 .home {
