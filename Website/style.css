@@ -2,7 +2,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: red;
+    background-color: blue;
     padding: 2.0%;
     border: 5px black solid;
 }
@@ -24,7 +24,7 @@ a {
 } 
 
 a:visited {
-    color: purple;
+    color: red;
 }
 
 body {
@@ -99,7 +99,7 @@ h2 {
 }
   
 .sidenav a:hover {
-    color: blue;
+    color: red;
 }
   
 .main {
@@ -143,7 +143,7 @@ h2 {
 }
 
 .overlay a:visited {
-    color: purple; 
+    color: red; 
 }
   
 .overlay .closebtn {
@@ -177,7 +177,7 @@ h2 {
     padding-right: 180px;
     margin: 0 auto;
     background: linear-gradient(135deg, #1a1a1a, #333333); 
-    border: 3px solid red; 
+    border: 3px solid blue; 
     border-radius: 15px;
     box-shadow: 
         0 0 15px rgba(0, 255, 255, 0.8), 
@@ -242,25 +242,25 @@ h2 {
 }
 
 img, iframe {
-    border: 5px solid red; 
+    border: 5px solid blue; 
     border-radius: 10px; 
-    box-shadow: 0 0 15px rgba(255, 0, 0, 0.8); 
+    box-shadow: 0 0 15px blue; 
     transition: box-shadow 0.3s ease-in-out; 
 }
 
 img:hover, iframe:hover {
-    box-shadow: 0 0 25px rgba(255, 0, 0, 1); 
+    box-shadow: 0 0 25px blue; 
 }
 
 .circular-img {
     border-radius: 50%; 
     border: 5px solid red; 
-    box-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
+    box-shadow: 0 0 15px blue;
     transition: box-shadow 0.3s ease-in-out;
 }
 
 .circular-img:hover {
-    box-shadow: 0 0 25px rgba(255, 0, 0, 1); 
+    box-shadow: 0 0 25px blue; 
 }
 
 
