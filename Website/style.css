@@ -241,18 +241,6 @@ h2 {
     .body {margin-right: 0}
 }
 
-.audio-container {
-    text-align: center;
-    margin: 20px 0;
-}
-
-audio {
-    width: 100%; 
-    max-width: 400px; 
-    border: 2px solid black;
-    border-radius: 10px; 
-}
-
 img, iframe {
     border: 5px solid red; 
     border-radius: 10px; 
